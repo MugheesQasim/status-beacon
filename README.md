@@ -127,6 +127,14 @@ A full-stack project developed using the **MERN stack** to monitor the uptime of
 
 ---
 
+
+## Developers
+
+- **Mughees Qasim**
+- **Ahmad Rasool** 
+
+---
+
 ## License
 
 This project is licensed under the MIT License. For details, refer to the LICENSE file.

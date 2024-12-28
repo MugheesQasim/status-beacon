@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+
 // Defining type of object for the object getting from 
 type SignupFormInputs = {      
     first_name: string;
     last_name: string;
     email: string;
     password: string;
-    confrim_password: string;
+    confirm_password: string;
 };
 
 const Signup: React.FC = () => {
@@ -18,12 +19,12 @@ const Signup: React.FC = () => {
     last_name: "",
     email: "",
     password: "",
-    confrim_password: "",
+    confirm_password: "",
   });
 
   // Here we submit the form data
   const saveData: SubmitHandler<SignupFormInputs> = (formData) => {
-    if (formData.password === formData.confrim_password) {
+    if (formData.password === formData.confirm_password) {
       console.log("Form Data :", formData);
     } else {
       console.log("Passwords do not match");
@@ -86,12 +87,12 @@ const Signup: React.FC = () => {
         <div>
           <label>Confirm Password</label>
           <input
-            {...register('confrim_password', { required: true, minLength: { value: 6, message: "Confirm Password must be of length 6" } })}
-            name="confrim_password"
+            {...register('confirm_password', { required: true, minLength: { value: 6, message: "Confirm Password must be of length 6" } })}
+            name="confirm_password"
             type="password"
             placeholder="Retype your password"
           />
-          {errors.confrim_password ? <div>{errors.confrim_password.message}</div> : null}
+          {errors.confirm_password ? <div>{errors.confirm_password.message}</div> : null}
         </div>
 
         {/* Submit Button */}

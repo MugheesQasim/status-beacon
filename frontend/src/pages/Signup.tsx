@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-
+// Defining type of object for the object getting from 
 type SignupFormInputs = {      
     first_name: string;
     last_name: string;

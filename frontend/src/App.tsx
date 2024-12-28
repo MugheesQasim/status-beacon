@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Signup from './pages/Signup';
 
-function App() {
+const App: React.FC =()=> {
   return (
     <div className="App">
-      <h1>Website Status</h1>
+      <Signup/>
     </div>
   );
 }

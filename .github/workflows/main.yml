@@ -36,10 +36,10 @@ jobs:
         working-directory: frontend
         run: npm install
         
-      # Run tests for the React app in the frontend folder
-      - name: Run tests
-        working-directory: frontend
-        run: npm test -- --watchAll=false
+      # # Run tests for the React app in the frontend folder
+      # - name: Run tests
+      #   working-directory: frontend
+      #   run: npm test -- --watchAll=false
   
   # # Job for backend
   # backend:

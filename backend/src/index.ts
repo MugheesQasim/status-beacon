@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import router from "./routes/authRoutes";
+import router from "./routes/userRoutes";
 
 
 dotenv.config({path:'.env.local'});   // Load environment variables from .env.local

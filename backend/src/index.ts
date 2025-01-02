@@ -1,11 +1,13 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import dotenv from "dotenv";
 import router from "./routes/authRoutes";
 
-const app = express();
-const PORT = 3000; // You can change this to any desired port
 
+dotenv.config({path:'.env.local'});   // Load environment variables from .env.local
+const app = express();
+const PORT= process.env.PORT
 // Middleware
 app.use(bodyParser.json()); // Parse incoming JSON requests
 app.use(cors()); // Enable Cross-Origin Resource Sharing

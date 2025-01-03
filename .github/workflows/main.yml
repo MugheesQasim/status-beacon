@@ -42,14 +42,40 @@ jobs:
       #   run: npm test -- --watchAll=false
   
   # # Job for backend
-  # backend:
-  #   runs-on: ubuntu-latest
+  backend:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     # Add backend specific steps here when ready
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+    steps:
+      # Add backend specific steps here when ready
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     # Backend setup and tests will be added later
-  #     - name: Run backend tests
-  #       run: echo "Backend tests will go here."
+    # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+    
+    # Cache Node.js modules to speed up subsequent builds
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+    # Install dependencies
+      - name: Install dependencies
+        working-directory: backend
+        run: npm install
+
+    # Compile TypeScript code
+      - name: Compile TypeScript
+        working-directory: backend
+        run: npm run build      
+
+    # Run backend tests
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test

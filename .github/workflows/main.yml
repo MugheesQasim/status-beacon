@@ -54,7 +54,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '23'
+          node-version: '20'
     
     # Cache Node.js modules to speed up subsequent builds
       - name: Cache Node.js modules
@@ -67,12 +67,15 @@ jobs:
 
     # Install dependencies
       - name: Install dependencies
+        working-directory: backend
         run: npm install
 
     # Compile TypeScript code
       - name: Compile TypeScript
+        working-directory: backend
         run: npm run build      
 
     # Run backend tests
       - name: Run backend tests
+        working-directory: backend
         run: npm test

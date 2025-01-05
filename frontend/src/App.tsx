@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import UrlForm from './pages/UrlForm';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/configuration" element={<UrlForm/>}/>
           </Routes>
           {/* Buttons for navigation */}
         </div>

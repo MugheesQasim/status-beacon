@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 type LoginFormInputs = {
     email: string;
@@ -8,6 +9,7 @@ type LoginFormInputs = {
 
 const Login: React.FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
+    const navigate = useNavigate();
 
     const [FormData, setFormData] = useState({
         email: "",
@@ -16,6 +18,7 @@ const Login: React.FC = () => {
 
     const saveData: SubmitHandler<LoginFormInputs> = (formData) => {
         console.log("Form Data :", formData);
+        navigate("/configuration");
     };
 
     return (
